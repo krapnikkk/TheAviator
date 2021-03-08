@@ -1,10 +1,8 @@
-import * as THREE from "three";
-import * as fgui from "fairygui-three";
 import { AirPlane, CoinsHolder, Sea, Sky, Particle, ParticlesHolder, Enemy, EnemiesHolder } from "./objects/index.js"
 import { particlesPool, enemiesPool, Game } from "./constant"
 import { normalize } from "./utlis.js";
+import * as fgui from "../assets/libs/fairygui.min.js";
 import UIPanel from "./ui/UIPanel.js";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 export default class Main {
     oldTime = new Date().getTime();
     mousePos = { x: 0, y: 0 };
@@ -29,25 +27,10 @@ export default class Main {
         this.createCoins();
         this.createParticles();
 
-        document.addEventListener('mousemove', this.handleMouseMove.bind(this), { passive: false });
-        document.addEventListener('touchmove', this.handleTouchMove.bind(this), { passive: false });
-        document.addEventListener('mouseup', this.handleMouseUp.bind(this), { passive: false });
-        document.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: false });
-        window.addEventListener('resize', () => {
-            this.HEIGHT = window.innerHeight;
-            this.WIDTH = window.innerWidth;
-            this.renderer.setSize(this.WIDTH, this.HEIGHT);
-            this.camera.aspect = this.WIDTH / this.HEIGHT;
-            this.camera.updateProjectionMatrix();
-        }, false);
-
-        // this.controls = new OrbitControls(this.UICamera, this.renderer.domElement);
-        // let helper = new THREE.GridHelper(2000, 10);
-        // this.UIScene.add(helper);
-
-        // let helper2 = new THREE.AxesHelper(2000);
-        // this.UIScene.add(helper2);
-        // this.animate(); // onUILoaded
+        canvas.addEventListener('mousemove', this.handleMouseMove.bind(this), { passive: false });
+        canvas.addEventListener('touchmove', this.handleTouchMove.bind(this), { passive: false });
+        canvas.addEventListener('mouseup', this.handleMouseUp.bind(this), { passive: false });
+        canvas.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: false });
     }
 
 
@@ -110,12 +93,16 @@ export default class Main {
         Game.distanceForEnemiesSpawn = 50;
 
         Game.status = "playing";
-        
+
         this.UIPanel.updateRound(Game.level);
     }
 
     createRender() {
-        this.renderer = new THREE.WebGLRenderer({ antialias: true });
+        this.renderer = new THREE.WebGLRenderer({
+            canvas,
+            antialias: true,
+            preserveDrawingBuffer: true
+        });
         this.renderer.setClearColor(0xf7d9aa);
         this.renderer.sortObjects = false;
         this.renderer.setPixelRatio(window.devicePixelRatio);
@@ -136,7 +123,7 @@ export default class Main {
         fgui.Stage.scene = this.UIScene;
         fgui.Stage.init(this.renderer);
 
-        fgui.UIPackage.loadPackage("dist/ui/TheAviator").then(this.createUIPanel.bind(this));
+        fgui.UIPackage.loadPackage("http://192.168.68.214:8001/ui/TheAviator").then(this.createUIPanel.bind(this));
 
     }
 
@@ -166,8 +153,6 @@ export default class Main {
         shadowLight.shadow.mapSize.width = 4096;
         shadowLight.shadow.mapSize.height = 4096;
 
-        // var ch = new THREE.CameraHelper(shadowLight.shadow.camera);
-        // this.scene.add(ch);
         this.scene.add(hemisphereLight);
         this.scene.add(shadowLight);
         this.scene.add(this.ambientLight);
@@ -176,14 +161,13 @@ export default class Main {
 
     createUIPanel() {
         fgui.UIObjectFactory.setExtension("ui://TheAviator/Main", UIPanel);
-        this.UIPanel = fgui.UIPackage.createObject("TheAviator", "Main").asCom;;
+        this.UIPanel = fgui.UIPackage.createObject("TheAviator", "Main");;
         fgui.GRoot.inst.addChild(this.UIPanel);
         this.UIPanel.displayObject.setLayer(0);
         this.UIPanel.displayObject.camera = this.UICamera;
 
         let container = new THREE.Group();
         let ratio = this.HEIGHT / this.UIPanel.height;
-        // ratio = ratio > 1 ? 1 : ratio;
         this.UIPanel.setScale(ratio, ratio);
         container.rotateX(this.UICamera.rotation.x);
         container.add(this.UIPanel.obj3D);
@@ -239,7 +223,6 @@ export default class Main {
 
         this.airplane.mesh.rotation.z = (targetY - this.airplane.mesh.position.y) * this.deltaTime * Game.planeRotXSensivity;
         this.airplane.mesh.rotation.x = (this.airplane.mesh.position.y - targetY) * this.deltaTime * Game.planeRotZSensivity;
-        // var targetCameraZ = normalize(Game.planeSpeed, Game.planeMinSpeed, Game.planeMaxSpeed, Game.cameraNearPos, Game.cameraFarPos);
         this.camera.fov = normalize(this.mousePos.x, -1, 1, 40, 80);
         this.camera.updateProjectionMatrix()
         this.camera.position.y += (this.airplane.mesh.position.y - this.camera.position.y) * this.deltaTime * Game.cameraSensivity;
@@ -277,7 +260,7 @@ export default class Main {
 
     updateDistance() {
         Game.distance += Game.speed * this.deltaTime * Game.ratioSpeedDistance;
-        if(Game.status == "playing"){
+        if (Game.status == "playing") {
             this.UIPanel.updateDistance(Math.floor(Game.distance));
             var d = (1 - (Game.distance % Game.distanceForLevelUpdate) / Game.distanceForLevelUpdate);
             this.UIPanel.updateLevel(d);
@@ -352,7 +335,7 @@ export default class Main {
             this.updateDistance();
             Game.baseSpeed += (Game.targetBaseSpeed - Game.baseSpeed) * this.deltaTime * 0.02;
             Game.speed = Game.baseSpeed * Game.planeSpeed;
-            
+
         }
 
 

@@ -1,5 +1,5 @@
 import {  Game,Colors } from "../constant";
-import * as THREE from "three";
+
 export class Pilot {
     constructor() {
         this.mesh = new THREE.Object3D();

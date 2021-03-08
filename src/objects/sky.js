@@ -1,5 +1,5 @@
 import { deltaTime, Game } from "../constant";
-import * as THREE from "three";
+
 import { Cloud } from "./cloud.js";
 export class Sky {
     constructor() {

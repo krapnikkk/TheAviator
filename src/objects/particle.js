@@ -1,5 +1,5 @@
-import * as THREE from "three";
-import { TweenMax,Power2 } from "gsap";
+
+import { TweenMax,Power2 } from "../../assets/libs/gsap.min.js";
 import {particlesPool} from "../constant.js";
 export class Particle {
     constructor() {

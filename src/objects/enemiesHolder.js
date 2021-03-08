@@ -1,4 +1,4 @@
-import * as THREE from "three";
+
 import { Enemy } from "./enemy";
 import { Game, enemiesPool,Colors } from "../constant.js";
 export class EnemiesHolder {

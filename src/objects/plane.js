@@ -1,4 +1,4 @@
-import * as THREE from "three";
+
 import {Colors} from "../constant"
 import { Pilot } from "./pilot";
 export class AirPlane {
@@ -10,10 +10,8 @@ export class AirPlane {
 
     init() {
         // Cabin
-
         var geomCabin = new THREE.BoxGeometry(80, 50, 50, 1, 1, 1);
         var matCabin = new THREE.MeshPhongMaterial({ color: Colors.red, flatShading: THREE.FlatShading });
-
         geomCabin.vertices[4].y -= 10;
         geomCabin.vertices[4].z += 20;
         geomCabin.vertices[5].y -= 10;
@@ -27,9 +25,7 @@ export class AirPlane {
         cabin.castShadow = true;
         cabin.receiveShadow = true;
         this.mesh.add(cabin);
-
         // Engine
-
         var geomEngine = new THREE.BoxGeometry(20, 50, 50, 1, 1, 1);
         var matEngine = new THREE.MeshPhongMaterial({ color: Colors.white, flatShading: THREE.FlatShading });
         var engine = new THREE.Mesh(geomEngine, matEngine);
@@ -37,9 +33,7 @@ export class AirPlane {
         engine.castShadow = true;
         engine.receiveShadow = true;
         this.mesh.add(engine);
-
         // Tail Plane
-
         var geomTailPlane = new THREE.BoxGeometry(15, 20, 5, 1, 1, 1);
         var matTailPlane = new THREE.MeshPhongMaterial({ color: Colors.red, flatShading: THREE.FlatShading });
         var tailPlane = new THREE.Mesh(geomTailPlane, matTailPlane);
@@ -47,9 +41,7 @@ export class AirPlane {
         tailPlane.castShadow = true;
         tailPlane.receiveShadow = true;
         this.mesh.add(tailPlane);
-
         // Wings
-
         var geomSideWing = new THREE.BoxGeometry(30, 5, 120, 1, 1, 1);
         var matSideWing = new THREE.MeshPhongMaterial({ color: Colors.red, flatShading: THREE.FlatShading });
         var sideWing = new THREE.Mesh(geomSideWing, matSideWing);

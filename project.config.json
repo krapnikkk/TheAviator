@@ -4,7 +4,7 @@
     "ignore": []
   },
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "enhance": false,
     "postcss": true,
@@ -30,14 +30,15 @@
       "outputPath": ""
     },
     "enableEngineNative": false,
-    "bundle": false,
+    "bundle": true,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
-    "userConfirmedBundleSwitch": false,
+    "userConfirmedBundleSwitch": true,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "useStaticServer": true
   },
   "compileType": "game",
   "libVersion": "2.15.0",
@@ -48,8 +49,8 @@
   },
   "scripts": {},
   "staticServerOptions": {
-    "baseURL": "",
-    "servePath": ""
+    "servePath": "assets",
+    "baseURL": ""
   },
   "isGameTourist": false,
   "condition": {

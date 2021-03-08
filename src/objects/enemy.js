@@ -1,4 +1,4 @@
-import * as THREE from "three";
+
 import { Colors } from "../constant.js";
 export class Enemy {
     constructor() {

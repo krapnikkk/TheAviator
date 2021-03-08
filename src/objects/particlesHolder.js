@@ -1,4 +1,4 @@
-import * as THREE from "three";
+
 import {Particle} from "./particle.js";
 import {particlesPool} from "../constant.js";
 export class ParticlesHolder {

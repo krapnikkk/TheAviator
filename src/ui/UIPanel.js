@@ -1,6 +1,5 @@
-import * as fgui from "fairygui-three";
-
-export default class UIPanel extends fgui.GComponent {
+import * as fgui from "../../assets/libs/fairygui.min.js";
+class UIPanel extends fgui.GComponent {
     constructor() {
         super();
     }
@@ -62,3 +61,5 @@ export default class UIPanel extends fgui.GComponent {
     }
 
 }
+
+export default UIPanel;

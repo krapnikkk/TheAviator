@@ -1,4 +1,4 @@
-import * as THREE from "three";
+
 import {Game} from "../constant.js";
 import { Coin } from "./coin.js";
 export class CoinsHolder {
