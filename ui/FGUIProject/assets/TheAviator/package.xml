@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="zebrz4oq">
+  <resources>
+    <component id="qgcz0" name="Main.xml" path="/" exported="true"/>
+    <image id="y5zj2" name="tympanus.net_Tutorials_TheAviator_(iPhone 6_7_8).png" path="/"/>
+    <component id="y5zj4" name="progress_level.xml" path="/"/>
+    <component id="y5zj5" name="progress_energy.xml" path="/"/>
+    <image id="y5zj7" name="progress.png" path="/"/>
+  </resources>
+  <publish name="TheAviator"/>
+</packageDescription>

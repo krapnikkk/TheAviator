@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750" designImageAlpha="100">
+  <displayList>
+    <text id="n9_y5zj" name="n9" xy="544,42" size="62,44" group="n10_y5zj" fontSize="32" color="#d1b790" text="The">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+    <text id="n0_do2o" name="n0" xy="478,23" size="378,154" group="n10_y5zj" font="codropsicons" fontSize="120" color="#d1b790" bold="true" text="Aviator">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+    <group id="n10_y5zj" name="main_title" xy="478,23" size="378,154"/>
+    <text id="n1_do2o" name="sub_title" xy="406,156" pivot="0.5,0.5" size="520,34" fontSize="24" color="#d6483b" align="center" vAlign="middle" letterSpacing="18" bold="true" text="FLY IT TO THE END">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+    <component id="n5_y5zj" name="progress_level" src="y5zj4" fileName="progress_level.xml" xy="405,646" group="n16_y5zj">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <ProgressBar value="100" max="100"/>
+    </component>
+    <component id="n6_y5zj" name="progress_energy" src="y5zj5" fileName="progress_energy.xml" xy="810,681" group="n16_y5zj">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <ProgressBar value="100" max="100"/>
+    </component>
+    <text id="n13_y5zj" name="title_level" xy="395,604" size="101,34" group="n16_y5zj" fontSize="24" color="#d1b790" align="center" vAlign="middle" letterSpacing="6" bold="true" text="LEVEL">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+    <text id="n11_y5zj" name="title_distance" xy="566,604" size="171,34" group="n16_y5zj" fontSize="24" color="#d1b790" align="center" vAlign="middle" letterSpacing="6" bold="true" text="DISTANCE">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+    <text id="n12_y5zj" name="title_energy" xy="802,604" size="132,34" group="n16_y5zj" fontSize="24" color="#d1b790" align="center" vAlign="middle" letterSpacing="6" bold="true" text="ENERGY">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+    <text id="n14_y5zj" name="text_distance" xy="551,647" size="200,84" group="n16_y5zj" fontSize="64" color="#d1b790" align="center" vAlign="middle" letterSpacing="2" autoSize="none" bold="true" text="0">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+    <text id="n15_y5zj" name="text_level" xy="418,657" size="60,64" group="n16_y5zj" fontSize="48" color="#d1b790" align="center" vAlign="middle" letterSpacing="2" autoSize="none" bold="true" text="1">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+    <text id="n17_y5zj" name="text_play" xy="460,371" size="413,84" group="n16_y5zj" fontSize="64" color="#d1b790" align="center" letterSpacing="2" bold="true" text="Click to Play">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+    <group id="n16_y5zj" name="n16" xy="395,371" size="539,361"/>
+  </displayList>
+  <transition name="tips" options="6" autoPlay="true" autoPlayRepeat="-1">
+    <item time="0" type="Alpha" target="n17_y5zj" tween="true" startValue="1" endValue="0" duration="6"/>
+    <item time="7" type="Alpha" target="n17_y5zj" tween="true" startValue="0" endValue="1" duration="5"/>
+  </transition>
+</component>

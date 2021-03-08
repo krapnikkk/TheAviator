@@ -1,0 +1,9 @@
+export { AirPlane } from "./plane.js";
+export { Sea } from "./sea.js";
+export { Sky } from "./sky.js";
+export { Particle } from "./particle.js";
+export { ParticlesHolder } from "./particlesHolder.js";
+export { Coin } from "./coin.js";
+export { CoinsHolder } from "./coinsHolder.js";
+export { Enemy } from "./enemy.js";
+export { EnemiesHolder } from "./enemiesHolder.js";

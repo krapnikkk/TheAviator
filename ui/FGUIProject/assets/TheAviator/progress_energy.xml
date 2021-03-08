@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="120,16" extention="ProgressBar">
+  <controller name="color" pages="0,,1," selected="0"/>
+  <displayList>
+    <graph id="n0_y5zj" name="n0" xy="0,0" size="120,16" type="rect" lineSize="0" lineColor="#ffa0a0a0" fillColor="#ffd1b790" corner="6">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <graph id="n1_y5zj" name="bar" xy="5,4" size="110,8" type="rect" lineSize="0" fillColor="#ff68c3c0">
+      <gearColor controller="color" pages="1" values="#d6483b" default="#68c3c0"/>
+    </graph>
+  </displayList>
+  <ProgressBar titleType="valueAndmax"/>
+  <transition name="blinking">
+    <item time="0" type="Alpha" target="n1_y5zj" tween="true" startValue="1" endValue="0" duration="6"/>
+    <item time="7" type="Alpha" target="n1_y5zj" tween="true" startValue="0" endValue="1" duration="5"/>
+  </transition>
+  <transition name="normal">
+    <item time="0" type="Alpha" target="n1_y5zj" value="1"/>
+  </transition>
+</component>
